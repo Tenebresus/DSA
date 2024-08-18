@@ -2,6 +2,8 @@
 #define TREE_H
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
 
 typedef struct treeNode {
 
@@ -20,5 +22,7 @@ typedef struct Tree {
 
 treeNode *getCorrectNode(treeNode *rootTreePtr, int value); 
 void addValueToTree(Tree *treePtr, int value);
+void deleteTreeNode(Tree *tree, int value);
+treeNode *getNodeWithValue(treeNode *rootTreePotr, int value);
 
 #endif

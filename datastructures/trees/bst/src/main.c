@@ -17,7 +17,7 @@ int main() {
 	addValueToTree(&tree, 15);
 	addValueToTree(&tree, 8);
 
-	printf("%d\n", rootNode->leftChild->value);
+	deleteTreeNode(&tree, 8);
 
 	return 0;
 

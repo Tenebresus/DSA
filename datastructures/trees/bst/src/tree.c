@@ -28,3 +28,35 @@ treeNode *getCorrectNode(treeNode *rootTreePtr, int value) {
 		return getCorrectNode(nextNode, value);
 
 }
+
+void deleteTreeNode(Tree *tree, int value) {
+
+	treeNode *foundNode = getNodeWithValue(tree->rootNode, value);
+
+	if (!foundNode->leftChild && !foundNode->rightChild) {
+
+		treeNode *parentNode = foundNode->parentNode;
+		bool isLeftChild = (parentNode->leftChild == foundNode);
+		
+		if (isLeftChild) {
+			parentNode->leftChild = NULL;
+		} else {
+			parentNode->rightChild = NULL;
+		}
+
+	}
+
+
+}
+
+treeNode *getNodeWithValue(treeNode *rootTreePotr, int value) {
+
+	if (rootTreePotr->value == value) {
+		return rootTreePotr;
+	}
+
+	treeNode *newNode = (value > rootTreePotr->value) ? rootTreePotr->rightChild : rootTreePotr->leftChild;
+	return getNodeWithValue(newNode, value);
+
+
+}
